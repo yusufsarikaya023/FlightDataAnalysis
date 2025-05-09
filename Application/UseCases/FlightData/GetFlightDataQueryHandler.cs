@@ -1,5 +1,3 @@
-using MediatR;
-
 namespace Application.UseCases.FlightData;
 
 public record GetFlightDataQuery: IRequest<string>;
