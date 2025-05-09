@@ -1,0 +1,28 @@
+﻿using Domain.Aggregation.Flights;
+
+namespace Infrastructure.Configs;
+
+public class FlightConfiguration : IEntityTypeConfiguration<Flight>
+{
+    public void Configure(EntityTypeBuilder<Flight> builder)
+    {
+        builder.Property(e => e.FlightNumber)
+            .IsUnicode(false)
+            .HasMaxLength(10);
+
+        builder.HasOne(e => e.AirCrafts)
+            .WithMany()
+            .HasForeignKey(e => e.AirCraftId)
+            .IsRequired();
+
+        builder.HasOne(e => e.DepartureAirport)
+            .WithMany()
+            .HasForeignKey(e => e.DepartureAirportId)
+            .IsRequired();
+
+        builder.HasOne(e => e.ArrivalAirport)
+            .WithMany()
+            .HasForeignKey(e => e.ArrivalAirportId)
+            .IsRequired();
+    }
+}
