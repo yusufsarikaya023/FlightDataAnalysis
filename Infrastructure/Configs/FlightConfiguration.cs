@@ -10,7 +10,7 @@ public class FlightConfiguration : IEntityTypeConfiguration<Flight>
             .IsUnicode(false)
             .HasMaxLength(10);
 
-        builder.HasOne(e => e.AirCrafts)
+        builder.HasOne(e => e.AirCraft)
             .WithMany()
             .HasForeignKey(e => e.AirCraftId)
             .IsRequired();

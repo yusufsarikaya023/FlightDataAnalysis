@@ -2,9 +2,9 @@
 
 namespace Infrastructure.Configs;
 
-public class AirCraftConfig : IEntityTypeConfiguration<AirCrafts>
+public class AirCraftConfig : IEntityTypeConfiguration<AirCraft>
 {
-    public void Configure(EntityTypeBuilder<AirCrafts> builder)
+    public void Configure(EntityTypeBuilder<AirCraft> builder)
     {
         builder.Property(e => e.RegistrationNumber)
             .IsUnicode(false)

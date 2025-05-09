@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Domain.Abstract;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Infrastructure;
@@ -16,5 +17,7 @@ public static class ServiceRegister
         services.AddDbContext<Context>(x => x.UseNpgsql(connectionString)
             .UseSnakeCaseNamingConvention()
         );
+        
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
     }
 }

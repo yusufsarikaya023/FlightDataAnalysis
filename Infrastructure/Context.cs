@@ -24,7 +24,7 @@ public class Context : DbContext
             .UseSnakeCaseNamingConvention();
     }
 
-    public DbSet<AirCrafts> AirCrafts { get; set; }
+    public DbSet<AirCraft> AirCrafts { get; set; }
     public DbSet<Airport> Airports { get; set; }
     public DbSet<Flight> Flights { get; set; }
 

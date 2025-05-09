@@ -1,6 +1,6 @@
 ﻿namespace Domain.Aggregation.AirCrafts;
 
-public class AirCrafts : Entity
+public class AirCraft : Entity
 {
     public string RegistrationNumber { get; private set; } = string.Empty;
 

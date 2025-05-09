@@ -6,7 +6,7 @@ public class Flight : Entity
 {
     public string FlightNumber { get; set; } = string.Empty;
     public int AirCraftId { get; set; }
-    public AirCrafts.AirCrafts AirCrafts { get; set; } = null!;
+    public AirCrafts.AirCraft AirCraft { get; set; } = null!;
 
     public int DepartureAirportId { get; set; }
     public Airport DepartureAirport { get; set; } = null!;
