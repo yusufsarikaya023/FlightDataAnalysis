@@ -12,5 +12,7 @@ public class AirportConfig : IEntityTypeConfiguration<Airport>
 
         builder.Property(e => e.Name)
             .HasMaxLength(100);
+        
+        builder.HasIndex(e => e.Code).IsUnique();
     }
 }

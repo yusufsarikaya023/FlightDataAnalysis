@@ -4,15 +4,17 @@ public class Airport : Entity
 {
     public string Code { get; private set; } = string.Empty;
 
-    public void SetCode(string value)
+    public Airport SetCode(string value)
     {
         Code = value;
+        return this;
     }
 
-    public string Name { get; set; } = string.Empty;
+    public string? Name { get; set; } = string.Empty;
 
-    public void SetName(string value)
+    public Airport SetName(string value)
     {
         Name = value;
+        return this;
     }
 }

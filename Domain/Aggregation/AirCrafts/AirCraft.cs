@@ -4,15 +4,17 @@ public class AirCraft : Entity
 {
     public string RegistrationNumber { get; private set; } = string.Empty;
 
-    public void SetRegistrationNumber(string value)
+    public AirCraft SetRegistrationNumber(string value)
     {
         RegistrationNumber = value;
+        return this;
     }
 
-    public AircraftType AircraftType { get; set; } 
+    public AircraftType AircraftType { get; set; }
 
-    public void SetAircraftType(AircraftType value)
+    public AirCraft SetAircraftType(AircraftType value)
     {
         AircraftType = value;
+        return this;
     }
 }

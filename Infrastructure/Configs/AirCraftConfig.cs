@@ -9,5 +9,7 @@ public class AirCraftConfig : IEntityTypeConfiguration<AirCraft>
         builder.Property(e => e.RegistrationNumber)
             .IsUnicode(false)
             .HasMaxLength(10);
+        
+        builder.HasIndex(e=> e.RegistrationNumber).IsUnique();
     }
 }

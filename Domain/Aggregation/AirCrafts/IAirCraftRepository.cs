@@ -4,5 +4,6 @@ namespace Domain.Aggregation.AirCrafts;
 
 public interface IAirCraftRepository: IRepository
 {
-    void Add(AirCraft airCraft);
+    Task Add(AirCraft airCraft);
+    Task<AirCraft?> GetByRegistrationNumber(string registrationNumber);
 }
