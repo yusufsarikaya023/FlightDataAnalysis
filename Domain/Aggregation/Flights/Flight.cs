@@ -55,4 +55,11 @@ public class Flight : Entity
         ArrivalDateTime = value;
         return this;
     }
+    
+    public FlightConsistencyType ConsistencyType { get; set; } = FlightConsistencyType.Unchecked;
+    public Flight SetFlag(FlightConsistencyType value)
+    {
+        ConsistencyType = value;
+        return this;
+    }
 }
