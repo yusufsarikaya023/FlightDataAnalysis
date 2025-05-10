@@ -8,4 +8,11 @@ public class FlightRepository(Context context) : Repository, IFlightRepository
     {
         await context.Flights.AddAsync(flight);
     }
+
+    public Task<Flight[]> GetUncheckedFlights()
+    {
+        return context.Flights
+            .Where(x => x.ConsistencyType == FlightConsistencyType.Unchecked)
+            .ToArrayAsync();
+    }
 }
