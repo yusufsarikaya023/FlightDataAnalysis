@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace Function.Functions;
 
-public class GetFlightDataFunction(ILogger<GetFlightDataFunction> logger, IMediator mediator)
+public class GetFlights(ILogger<GetFlights> logger, IMediator mediator)
 {
     [Function("GetFlights")]
     [ValidateRequest(typeof(Pagination))]
