@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace Function.Functions;
 
-public class GetFlights(ILogger<GetFlights> logger, IMediator mediator)
+public class GetFlights(IMediator mediator)
 {
     [Function("GetFlights")]
     [ValidateRequest(typeof(Pagination))]
@@ -16,8 +16,6 @@ public class GetFlights(ILogger<GetFlights> logger, IMediator mediator)
     [OpenApiResponseWithBody(HttpStatusCode.OK, "application/json", typeof(FlightDto[]))]
     public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "post")] HttpRequest req)
     {
-        logger.LogInformation("C# HTTP trigger function processed a request.");
-
         var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
         var data = JsonConvert.DeserializeObject<Pagination>(requestBody);
         var result = await mediator.Send(new GetFlightDataQuery(data!));

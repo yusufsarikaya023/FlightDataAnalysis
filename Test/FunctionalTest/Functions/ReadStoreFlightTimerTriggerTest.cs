@@ -1,7 +1,7 @@
 using Application.UseCases.FlightData;
 using Function.Functions;
 
-namespace Test.FunctionalTest;
+namespace Test.FunctionalTest.Functions;
 
 public class ReadStoreFlightTimerTriggerTest
 {
