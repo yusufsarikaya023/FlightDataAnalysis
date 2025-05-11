@@ -1,19 +1,20 @@
 using Application.UseCases.FlightData;
+using Domain.Aggregation.Flights;
 using Function.Functions;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Test.FunctionalTest.Functions;
 
-public class ReadStoreFlightTimerTriggerTest
+[Collection("FunctionalCollection")]
+public class ReadStoreFlightTimerTriggerTest(FunctionFixture fixture)
 {
+    private readonly ReadStoreFlightTimerTrigger _sut = new(fixture.Host.Services.GetRequiredService<IMediator>());
+
     [Fact]
     public async Task ReadFlightTimerTrigger_Should_Execute_At_Specified_Time()
     {
         // Arrange
-        var logger = new Mock<ILogger<ReadStoreFlightTimerTrigger>>();
-        
-        var mediator = new Mock<IMediator>();
-
-        var scheduleStatus = new ScheduleStatus()
+        var scheduleStatus = new ScheduleStatus
         {
             Last = DateTime.UtcNow.AddMinutes(-1),
             Next = DateTime.UtcNow.AddMinutes(1),
@@ -26,21 +27,12 @@ public class ReadStoreFlightTimerTriggerTest
             IsPastDue = false,
         };
 
-        var trigger = new ReadStoreFlightTimerTrigger(logger.Object, mediator.Object);
-
         // Act
-        await trigger.Run(timerInfo);
+        await _sut.Run(timerInfo);
+        var flights = fixture.Context.Flights.Where(x => x.ConsistencyType == FlightConsistencyType.Unchecked).ToList();
 
         // Assert
-        logger.Verify(
-            x => x.Log(
-                LogLevel.Information,
-                It.IsAny<EventId>(),
-                It.Is<It.IsAnyType>((state, t) =>
-                    state.ToString()!.Contains("executed at")),
-                It.IsAny<Exception>(),
-                It.IsAny<Func<It.IsAnyType, Exception, string>>()!),
-            Times.AtLeastOnce);
-        mediator.Verify(m => m.Send(It.IsAny<ReadStoreFlightCommand>(), It.IsAny<CancellationToken>()), Times.Once);
+        Assert.NotNull(flights);
+        Assert.NotEmpty(flights);
     }
 }
