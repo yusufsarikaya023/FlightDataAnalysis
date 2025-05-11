@@ -2,7 +2,8 @@ using Infrastructure.Repositories;
 
 namespace Test.InfrastructureIntegrationTest.Repositories;
 
-public class AirportRepositoryTest(RepositoryFixture fixture) : IClassFixture<RepositoryFixture>
+[Collection("InfrastructureCollection")]
+public class AirportRepositoryTest(RepositoryFixture fixture)
 {
     private readonly AirportRepository _repository = new(fixture.Context);
 

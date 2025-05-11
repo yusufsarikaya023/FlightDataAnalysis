@@ -3,7 +3,8 @@ using Infrastructure.Repositories;
 
 namespace Test.InfrastructureIntegrationTest.Repositories;
 
-public class FlightRepositoryTest(RepositoryFixture fixture): IClassFixture<RepositoryFixture>
+[Collection("InfrastructureCollection")]
+public class FlightRepositoryTest(RepositoryFixture fixture)
 {
     // setup
     private readonly FlightRepository _repository = new(fixture.Context);

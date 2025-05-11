@@ -2,7 +2,8 @@ using Infrastructure.Repositories;
 
 namespace Test.InfrastructureIntegrationTest.Repositories;
 
-public class AirCraftRepositoryTest(RepositoryFixture fixture) : IClassFixture<RepositoryFixture>
+[Collection("InfrastructureCollection")]
+public class AirCraftRepositoryTest(RepositoryFixture fixture)
 {
     // setup
     private readonly AirCraftRepository _repository = new(fixture.Context);
