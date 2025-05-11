@@ -1,8 +1,8 @@
 using System.Net;
 using Application.Common;
 using Application.UseCases.FlightData;
+using Application.UseCases.FlightData.DTO;
 using Function.Attributes;
-using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes;
 using Newtonsoft.Json;
 
 namespace Function.Functions;
@@ -13,14 +13,14 @@ public class GetFlights(ILogger<GetFlights> logger, IMediator mediator)
     [ValidateRequest(typeof(Pagination))]
     [OpenApiOperation("GetFlightDataFunction")]
     [OpenApiRequestBody("application/json", typeof(Pagination))]
-    [OpenApiResponseWithBody(HttpStatusCode.OK, "application/json", typeof(string))]
+    [OpenApiResponseWithBody(HttpStatusCode.OK, "application/json", typeof(FlightDto[]))]
     public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "post")] HttpRequest req)
     {
         logger.LogInformation("C# HTTP trigger function processed a request.");
 
         var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
         var data = JsonConvert.DeserializeObject<Pagination>(requestBody);
-        var result = await mediator.Send(new GetFlightDataQuery());
+        var result = await mediator.Send(new GetFlightDataQuery(data!));
         return new OkObjectResult(result);
     }
 }

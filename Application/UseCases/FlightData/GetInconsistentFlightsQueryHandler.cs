@@ -3,15 +3,15 @@ using Domain.Abstract;
 
 namespace Application.UseCases.FlightData;
 
-public record GetFlightDataQuery(Pagination Pagination) : IRequest<FlightDto[]>;
+public record GetInconsistentFlightsQuery : IRequest<FlightDto[]>;
 
-public class GetFlightDataQueryHandler(IUnitOfWork unitOfWork) : IRequestHandler<GetFlightDataQuery, FlightDto[]>
+public class GetInconsistentFlightsQueryHandler(IUnitOfWork unitOfWork)
+    : IRequestHandler<GetInconsistentFlightsQuery, FlightDto[]>
 {
-    public Task<FlightDto[]> Handle(GetFlightDataQuery request, CancellationToken cancellationToken)
+    public Task<FlightDto[]> Handle(GetInconsistentFlightsQuery request, CancellationToken cancellationToken)
     {
-        var (page, size) = request.Pagination;
         var flights = unitOfWork.FlightRepository()
-            .GetFlights(page, size)
+            .GetInconsistentFlights()
             .Select(x => new FlightDto
             {
                 Id = x.Id,

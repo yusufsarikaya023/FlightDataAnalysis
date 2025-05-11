@@ -15,7 +15,7 @@ public class PaginationValidator: AbstractValidator<Pagination>
             .WithMessage("PageSize must be greater than 0");
         
         RuleFor(x=> x.PageSize)
-            .LessThan(100)
+            .LessThanOrEqualTo(100)
             .WithMessage("PageSize must be less than 100");
     }
 }
