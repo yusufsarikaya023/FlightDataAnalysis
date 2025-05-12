@@ -1,0 +1,12 @@
+{
+    "IsEncrypted": false,
+    "Values": {
+        "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+        "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+        "AzureWebJobs.ReadStoreFlightTimerTrigger.Disabled": "true",
+        "AzureWebJobs.CheckFlightConsistencyTimerTrigger.Disabled": "true"
+    },
+    "ConnectionStrings": {
+        "DefaultConnection": "Host=localhost;Port=5432;Database=flightAnalysis;Username=yusuf;Password=1986.Yusuf;"
+    }
+}
