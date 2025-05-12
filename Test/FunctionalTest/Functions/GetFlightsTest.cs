@@ -4,7 +4,6 @@ using Application.UseCases.FlightData.DTO;
 using Function.Functions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 
 namespace Test.FunctionalTest.Functions;
@@ -12,7 +11,7 @@ namespace Test.FunctionalTest.Functions;
 [Collection("FunctionalCollection")]
 public class GetFlightsTest(FunctionFixture fixture)
 {
-    private readonly GetFlights _sut = new(fixture.Host.Services.GetRequiredService<IMediator>());
+    private readonly GetFlights _sut = new(fixture.GetService<IMediator>());
     
     [Fact]
     public async Task Get_Flights_Should_Return_200()
@@ -34,7 +33,7 @@ public class GetFlightsTest(FunctionFixture fixture)
         
         fixture.Context.Add(flight);
         await fixture.Context.SaveChangesAsync(CancellationToken.None);
-        var body = new Pagination(1, 10);
+        var body = new Pagination(0, 0);
         var httpRequest = new Mock<HttpRequest>();
         httpRequest.Setup(r => r.Body)
             .Returns(new MemoryStream(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(body))));

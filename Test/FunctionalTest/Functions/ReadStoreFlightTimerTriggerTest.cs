@@ -1,14 +1,12 @@
-using Application.UseCases.FlightData;
 using Domain.Aggregation.Flights;
 using Function.Functions;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace Test.FunctionalTest.Functions;
 
 [Collection("FunctionalCollection")]
 public class ReadStoreFlightTimerTriggerTest(FunctionFixture fixture)
 {
-    private readonly ReadStoreFlightTimerTrigger _sut = new(fixture.Host.Services.GetRequiredService<IMediator>());
+    private readonly ReadStoreFlightTimerTrigger _sut = new(fixture.GetService<IMediator>());
 
     [Fact]
     public async Task ReadFlightTimerTrigger_Should_Execute_At_Specified_Time()

@@ -1,6 +1,7 @@
 using Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 namespace Test.FunctionalTest;
@@ -11,6 +12,11 @@ public class FunctionFixture: IDisposable, IAsyncDisposable
     private static readonly object Lock = new();
     private static bool _databaseInitialized;
     public Context Context;
+    
+    public T GetService<T>() where T : notnull
+    {
+        return Host.Services.GetRequiredService<T>();
+    }
 
     public FunctionFixture()
     {

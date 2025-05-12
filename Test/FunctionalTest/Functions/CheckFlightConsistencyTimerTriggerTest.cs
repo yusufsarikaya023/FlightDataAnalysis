@@ -1,14 +1,13 @@
 using Domain.Aggregation.Flights;
 using Function.Functions;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace Test.FunctionalTest.Functions;
 
 [Collection("FunctionalCollection")]
 public class CheckFlightConsistencyTimerTriggerTest(FunctionFixture fixture)
 {
-    private readonly CheckFlightConsistencyTimerTrigger _sut = new(fixture.Host.Services.GetRequiredService<IMediator>());
+    private readonly CheckFlightConsistencyTimerTrigger _sut = new(fixture.GetService<IMediator>());
 
     [Fact]
     public async Task CheckFlightConsistencyTimerTrigger_Should_Execute_At_Specified_Time()

@@ -10,6 +10,7 @@ builder.Services.InjectApplication();
 builder.Services.InjectInfrastructure();
 
 // Middlewares
+builder.UseMiddleware<ExceptionHandlerMiddleware>();
 builder.UseMiddleware<ValidationMiddleware>();
 
 builder.Build().Run();

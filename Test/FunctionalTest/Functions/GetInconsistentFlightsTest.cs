@@ -5,7 +5,6 @@ using Domain.Aggregation.Flights;
 using Function.Functions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 
 namespace Test.FunctionalTest.Functions;
@@ -13,7 +12,7 @@ namespace Test.FunctionalTest.Functions;
 [Collection("FunctionalCollection")]
 public class GetInconsistentFlightsTest(FunctionFixture fixture)
 {
-    private readonly GetInconsistentFlights _sut = new(fixture.Host.Services.GetRequiredService<IMediator>());
+    private readonly GetInconsistentFlights _sut = new(fixture.GetService<IMediator>());
     
     [Fact]
     public async Task Get_Flights_Should_Return_200()
