@@ -4,6 +4,9 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Infrastructure;
 
+/// <summary>
+/// Service registration for the infrastructure layer
+/// </summary>
 public static class ServiceRegister
 {
     public static void InjectInfrastructure(this IServiceCollection services)

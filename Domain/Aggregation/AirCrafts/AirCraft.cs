@@ -1,5 +1,8 @@
 ﻿namespace Domain.Aggregation.AirCrafts;
 
+/// <summary>
+/// Represents an aircraft entity.
+/// </summary>
 public class AirCraft : Entity
 {
     public string RegistrationNumber { get; private set; } = string.Empty;

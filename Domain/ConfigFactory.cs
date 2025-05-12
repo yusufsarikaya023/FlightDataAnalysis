@@ -2,6 +2,9 @@
 
 namespace Domain;
 
+/// <summary>
+/// Factory class to create configuration
+/// </summary>
 public static class ConfigFactory
 {
     public static IConfigurationRoot GetConfiguration()

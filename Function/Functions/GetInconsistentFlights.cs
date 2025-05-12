@@ -4,6 +4,10 @@ using Application.UseCases.FlightData.DTO;
 
 namespace Function.Functions;
 
+/// <summary>
+/// Function to get inconsistent flights.
+/// </summary>
+/// <param name="mediator"> The mediator to send queries.</param>
 public class GetInconsistentFlights(IMediator mediator)
 {
     [Function("GetInconsistentFlights")]

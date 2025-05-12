@@ -8,6 +8,13 @@ namespace Application.UseCases.FlightData;
 
 public record ReadStoreFlightCommand : IRequest;
 
+/// <summary>
+/// Command to read flight data from csv file and store it in the database
+/// </summary>
+/// <param name="fileReaderService">File reader service to read csv file</param>
+/// <param name="mapper">>Mapper to map flight data dto to flight entity</param>
+/// <param name="unitOfWork">>Unit of work to save changes to the database</param>
+
 public class ReadStoreFlightCommandHandler(IFileReaderService fileReaderService, IMapper mapper, IUnitOfWork unitOfWork)
     : IRequestHandler<ReadStoreFlightCommand>
 {
@@ -16,7 +23,6 @@ public class ReadStoreFlightCommandHandler(IFileReaderService fileReaderService,
         try
         {
             var flights = fileReaderService.ReadCsv<FlightDataDto>("flights.csv");
-
 
             foreach (var flight in flights)
             {

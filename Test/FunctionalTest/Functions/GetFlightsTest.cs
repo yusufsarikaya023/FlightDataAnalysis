@@ -8,6 +8,9 @@ using Newtonsoft.Json;
 
 namespace Test.FunctionalTest.Functions;
 
+/// <summary>
+/// This class is responsible for testing the functionality of the GetFlights function.
+/// </summary>
 [Collection("FunctionalCollection")]
 public class GetFlightsTest(FunctionFixture fixture)
 {

@@ -3,8 +3,15 @@ using Domain.Aggregation.Flights;
 
 namespace Application.UseCases.FlightData;
 
+/// <summary>
+/// Command to check the consistency of flights.
+/// </summary>
 public record CheckFlightConsistencyCommand : IRequest;
 
+/// <summary>
+/// Handler for the CheckFlightConsistencyCommand to check the consistency of flights.
+/// </summary>
+/// <param name="unitOfWork">The unit of work instance.</param>
 public class CheckFlightConsistencyCommandHandler(IUnitOfWork unitOfWork)
     : IRequestHandler<CheckFlightConsistencyCommand>
 {

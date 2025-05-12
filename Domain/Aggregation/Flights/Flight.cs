@@ -3,6 +3,9 @@ using Domain.Aggregation.Airports;
 
 namespace Domain.Aggregation.Flights;
 
+/// <summary>
+/// Represents a flight entity.
+/// </summary>
 public class Flight : Entity
 {
     public string FlightNumber { get; private set; } = string.Empty;

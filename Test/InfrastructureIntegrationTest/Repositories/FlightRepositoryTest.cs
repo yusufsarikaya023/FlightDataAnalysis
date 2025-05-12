@@ -3,12 +3,18 @@ using Infrastructure.Repositories;
 
 namespace Test.InfrastructureIntegrationTest.Repositories;
 
+/// <summary>
+/// This class is responsible for testing the FlightRepository.
+/// </summary>
 [Collection("InfrastructureCollection")]
 public class FlightRepositoryTest(RepositoryFixture fixture)
 {
     // setup
     private readonly FlightRepository _repository = new(fixture.Context);
 
+    /// <summary>
+    /// This method is responsible for testing the Add method of the FlightRepository.
+    /// </summary>
     [Fact]
     public async Task FlightRepository_Should_Add_Flight()
     {
@@ -41,6 +47,9 @@ public class FlightRepositoryTest(RepositoryFixture fixture)
         inserted.AirCraftId.Should().Be(flight.AirCraftId);
     }
     
+    /// <summary>
+    /// This method is responsible for testing the GetByFlightNumber method of the FlightRepository.
+    /// </summary>
     [Fact]
     public async Task FlightRepository_Should_Get_Unchecked_Flights()
     {

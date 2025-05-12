@@ -2,8 +2,11 @@ using Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
-namespace Test;
+namespace Test.InfrastructureIntegrationTest;
 
+/// <summary>
+/// This class is responsible for setting up the test environment.
+/// </summary>
 public class RepositoryFixture: IDisposable, IAsyncDisposable
 {
     private readonly Context _context;

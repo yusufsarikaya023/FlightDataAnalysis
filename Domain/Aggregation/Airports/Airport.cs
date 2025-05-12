@@ -1,5 +1,8 @@
 ﻿namespace Domain.Aggregation.Airports;
 
+/// <summary>
+/// Represents an airport entity.
+/// </summary>
 public class Airport : Entity
 {
     public string Code { get; private set; } = string.Empty;

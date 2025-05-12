@@ -9,6 +9,9 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Function.Middlewares;
 
+/// <summary>
+/// Middleware to validate the request body using FluentValidation.
+/// </summary>
 public class ValidationMiddleware : IFunctionsWorkerMiddleware
 {
     public async Task Invoke(FunctionContext context, FunctionExecutionDelegate next)

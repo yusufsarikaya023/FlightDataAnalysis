@@ -2,6 +2,9 @@ using Domain.Aggregation.Flights;
 
 namespace Application.UseCases.FlightData.DTO;
 
+/// <summary>
+/// Mapper for FlightDataDto to Flight
+/// </summary>
 public class FlightMapper : Profile
 {
     public FlightMapper()

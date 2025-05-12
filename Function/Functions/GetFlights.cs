@@ -7,6 +7,11 @@ using Newtonsoft.Json;
 
 namespace Function.Functions;
 
+/// <summary>
+/// Function to get flight data with pagination.
+/// </summary>
+/// <param name="mediator"> The mediator to send queries.</param>
+
 public class GetFlights(IMediator mediator)
 {
     [Function("GetFlights")]

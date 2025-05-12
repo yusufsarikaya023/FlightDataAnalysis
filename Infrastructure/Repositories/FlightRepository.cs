@@ -2,6 +2,9 @@ using Domain.Aggregation.Flights;
 
 namespace Infrastructure.Repositories;
 
+/// <summary>
+/// Repository for Flight entity
+/// </summary>
 public class FlightRepository(Context context) : Repository, IFlightRepository
 {
     public async Task Add(Flight flight)

@@ -5,12 +5,29 @@ using Newtonsoft.Json;
 
 namespace Function.Middlewares;
 
+/// <summary>
+/// Middleware options for logging request and response information.
+/// </summary>
+/// <param name="Request"></param>
+/// <param name="Response"></param>
 public record LoggerOption(RequestInfo Request, EndpointErrorResponse Response);
 
+/// <summary>
+/// Represents the error response for the endpoint.
+/// </summary>
+/// <param name="Status"></param>
+/// <param name="Errors"></param>
 public record EndpointErrorResponse(int Status, string Errors);
 
+/// <summary>
+/// Represents the request information for logging.
+/// </summary>
 public record RequestInfo(string Method, string Path, string QueryString, HttpHeadersCollection Headers, string Body);
 
+/// <summary>
+/// Middleware to handle exceptions in Azure Functions.
+/// </summary>
+/// <param name="logger"></param>
 public class ExceptionHandlerMiddleware(ILogger<ExceptionHandlerMiddleware> logger) : IFunctionsWorkerMiddleware
 {
     public async Task Invoke(FunctionContext context, FunctionExecutionDelegate next)

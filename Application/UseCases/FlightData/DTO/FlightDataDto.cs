@@ -3,8 +3,6 @@ namespace Application.UseCases.FlightData.DTO;
 
 public class FlightDataDto
 {
-    // id	aircraft_registration_number	aircraft_type	flight_number	departure_airport	departure_datetime	arrival_airport	arrival_datetime
-    
     [Name("id")]
     public int Id { get; set; }
     

@@ -3,6 +3,9 @@ using Microsoft.EntityFrameworkCore.Storage;
 
 namespace Infrastructure.Repositories;
 
+/// <summary>
+/// Transaction class for managing database transactions
+/// </summary>
 public class Transaction(Context context) : ITransaction
 {
     private readonly IDbContextTransaction _scope = context.Database.BeginTransaction();

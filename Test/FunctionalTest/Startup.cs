@@ -6,6 +6,10 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Test.FunctionalTest;
 
+/// <summary>
+/// This class is responsible for setting up the test environment.
+/// </summary>
+/// <param name="connString"> The connection string for the test database.</param>
 public class Startup(string connString): FunctionsStartup
 {
     public override void Configure(IFunctionsHostBuilder builder)

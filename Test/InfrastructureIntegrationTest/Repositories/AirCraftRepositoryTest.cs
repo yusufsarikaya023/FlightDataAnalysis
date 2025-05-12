@@ -2,13 +2,20 @@ using Infrastructure.Repositories;
 
 namespace Test.InfrastructureIntegrationTest.Repositories;
 
+/// <summary>
+/// This class is responsible for testing the AirCraftRepository.
+/// </summary>
+/// <param name="fixture"></param>
+
 [Collection("InfrastructureCollection")]
 public class AirCraftRepositoryTest(RepositoryFixture fixture)
 {
     // setup
     private readonly AirCraftRepository _repository = new(fixture.Context);
     
-    
+    /// <summary>
+    /// This method is responsible for testing the Add method of the AirCraftRepository.
+    /// </summary>
     [Fact]
     public async Task AirCraftRepository_Should_Add_AirCraft()
     {
@@ -25,6 +32,9 @@ public class AirCraftRepositoryTest(RepositoryFixture fixture)
         inserted.RegistrationNumber.Should().Be(airCraft.RegistrationNumber);
     }
 
+    /// <summary>
+    /// This method is responsible for testing the GetByRegistrationNumber method of the AirCraftRepository.
+    /// </summary>
     [Fact]
     public async Task AirCraftRepository_Should_Get_AirCraft_By_RegistrationNumber()
     {

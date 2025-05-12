@@ -3,8 +3,15 @@ using Domain.Abstract;
 
 namespace Application.UseCases.FlightData;
 
+/// <summary>
+/// Query to get flight data
+/// </summary>
 public record GetInconsistentFlightsQuery : IRequest<FlightDto[]>;
 
+/// <summary>
+/// Handler for GetInconsistentFlightsQuery for getting flight data
+/// </summary>
+/// <param name="unitOfWork">The unit of work instance.</param>
 public class GetInconsistentFlightsQueryHandler(IUnitOfWork unitOfWork)
     : IRequestHandler<GetInconsistentFlightsQuery, FlightDto[]>
 {

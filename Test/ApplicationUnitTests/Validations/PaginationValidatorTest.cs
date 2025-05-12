@@ -4,6 +4,9 @@ using FluentValidation.TestHelper;
 
 namespace Test.ApplicationUnitTests.Validations;
 
+/// <summary>
+/// Unit tests for PaginationValidator
+/// </summary>
 public class PaginationValidatorTest
 {
     [Fact]

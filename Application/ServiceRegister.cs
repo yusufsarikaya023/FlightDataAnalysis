@@ -4,6 +4,10 @@ using Domain.Abstract;
 
 namespace Application;
 
+/// <summary>
+/// Service register for the application
+/// This class is used to register the services in the application.
+/// </summary>
 public static class ServiceRegister
 {
     public static void InjectApplication(this IServiceCollection services)

@@ -2,6 +2,9 @@ using Domain.Aggregation.Airports;
 
 namespace Infrastructure.Repositories;
 
+/// <summary>
+/// Repository for Airport entity
+/// </summary>
 public class AirportRepository(Context context) : Repository, IAirportRepository
 {
     public async Task Add(Airport airport)

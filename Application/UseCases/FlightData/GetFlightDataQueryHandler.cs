@@ -3,8 +3,16 @@ using Domain.Abstract;
 
 namespace Application.UseCases.FlightData;
 
+/// <summary>
+/// Query to get flight data
+/// </summary>
+/// <param name="Pagination">Pagination object containing page and page size</param>
 public record GetFlightDataQuery(Pagination Pagination) : IRequest<FlightDto[]>;
 
+/// <summary>
+/// Handler for GetFlightDataQuery for getting flight data
+/// </summary>
+/// <param name="unitOfWork">The unit of work instance.</param>
 public class GetFlightDataQueryHandler(IUnitOfWork unitOfWork) : IRequestHandler<GetFlightDataQuery, FlightDto[]>
 {
     public Task<FlightDto[]> Handle(GetFlightDataQuery request, CancellationToken cancellationToken)

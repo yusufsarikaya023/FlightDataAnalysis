@@ -6,6 +6,9 @@ using Microsoft.Extensions.Configuration;
 
 namespace Infrastructure;
 
+/// <summary>
+/// Database context for the application.
+/// </summary>
 public class Context : DbContext
 {
     public Context()
@@ -16,6 +19,10 @@ public class Context : DbContext
     {
     }
     
+    /// <summary>
+    /// Configures the database context with a connection string.
+    /// </summary>
+    /// <param name="optionsBuilder"></param>
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         if (optionsBuilder.IsConfigured) return;
@@ -28,6 +35,11 @@ public class Context : DbContext
     public DbSet<Airport> Airports { get; set; }
     public DbSet<Flight> Flights { get; set; }
 
+    /// <summary>
+    /// Configures the model for the database context.
+    /// This method is called when the model for a derived context is being created.
+    /// </summary>
+    /// <param name="modelBuilder"></param>
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(Context).Assembly);

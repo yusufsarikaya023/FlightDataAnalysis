@@ -6,6 +6,10 @@ using Infrastructure.Repositories;
 
 namespace Infrastructure;
 
+/// <summary>
+/// UnitOfWork class for managing database transactions and repositories
+/// </summary>
+/// <param name="context"></param>
 public class UnitOfWork(Context context) : IUnitOfWork
 {
     public ITransaction BeginTransaction()

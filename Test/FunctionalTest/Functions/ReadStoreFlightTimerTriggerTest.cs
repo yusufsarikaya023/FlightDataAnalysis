@@ -3,6 +3,9 @@ using Function.Functions;
 
 namespace Test.FunctionalTest.Functions;
 
+/// <summary>
+/// This class is responsible for testing the functionality of the ReadStoreFlightTimerTrigger.
+/// </summary>
 [Collection("FunctionalCollection")]
 public class ReadStoreFlightTimerTriggerTest(FunctionFixture fixture)
 {

@@ -2,6 +2,9 @@
 
 namespace Infrastructure.Configs;
 
+/// <summary>
+/// Configuration for the Flight entity.
+/// </summary>
 public class FlightConfiguration : IEntityTypeConfiguration<Flight>
 {
     public void Configure(EntityTypeBuilder<Flight> builder)

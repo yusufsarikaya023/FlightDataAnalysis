@@ -1,7 +1,9 @@
-﻿
+﻿namespace Application.Validations;
 
-namespace Application.Validations;
-
+/// <summary>
+/// Validator for Pagination class
+/// This class is used to validate the pagination parameters.
+/// </summary>
 public class PaginationValidator: AbstractValidator<Pagination>
 {
     public PaginationValidator()

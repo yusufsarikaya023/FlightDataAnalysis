@@ -4,6 +4,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Test.FunctionalTest.Functions;
 
+/// <summary>
+/// This class is responsible for testing the functionality of the CheckFlightConsistencyTimerTrigger.
+/// </summary>
+
 [Collection("FunctionalCollection")]
 public class CheckFlightConsistencyTimerTriggerTest(FunctionFixture fixture)
 {

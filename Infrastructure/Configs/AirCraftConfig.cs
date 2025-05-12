@@ -2,6 +2,9 @@
 
 namespace Infrastructure.Configs;
 
+/// <summary>
+/// Configuration for the AirCraft entity.
+/// </summary>
 public class AirCraftConfig : IEntityTypeConfiguration<AirCraft>
 {
     public void Configure(EntityTypeBuilder<AirCraft> builder)

@@ -6,6 +6,9 @@ using Microsoft.Extensions.Hosting;
 
 namespace Test.FunctionalTest;
 
+/// <summary>
+/// This class is responsible for setting up the test environment.
+/// </summary>
 public class FunctionFixture: IDisposable, IAsyncDisposable
 {
     public readonly IHost Host;

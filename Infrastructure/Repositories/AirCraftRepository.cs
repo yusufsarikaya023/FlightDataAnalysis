@@ -2,6 +2,9 @@ using Domain.Aggregation.AirCrafts;
 
 namespace Infrastructure.Repositories;
 
+/// <summary>
+/// Repository for AirCraft entity
+/// </summary>
 public class AirCraftRepository(Context context) : Repository, IAirCraftRepository
 {
     public async Task Add(AirCraft airCraft)

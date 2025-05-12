@@ -5,8 +5,14 @@ using Domain.Aggregation.Flights;
 
 namespace Test;
 
+/// <summary>
+/// This class is responsible for generating fake data for testing purposes.
+/// </summary>
 public class Faker
 {
+    /// <summary>
+    /// This method is responsible for generating fake data for the AirCraft entity.
+    /// </summary>
     public static AirCraft GetFakeAirCraft()
     {
         return new Faker<AirCraft>()
@@ -15,6 +21,9 @@ public class Faker
                 f => f.PickRandom(Enum.GetValues(typeof(AircraftType)).Cast<AircraftType>().ToArray()));
     }
     
+    /// <summary>
+    /// This method is responsible for generating fake data for the Flight entity.
+    /// </summary>
     public static Flight GetFakeFlight()
     {
         return new Faker<Flight>()
@@ -24,6 +33,9 @@ public class Faker
             .RuleFor(x => x.ArrivalDateTime, f => f.Date.Past(1, DateTime.UtcNow));
     }
 
+    /// <summary>
+    /// This method is responsible for generating fake data for the Airport entity.
+    /// </summary>
     public static Airport GetFakeAirport()
     {
         return new Faker<Airport>()

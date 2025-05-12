@@ -5,11 +5,11 @@ var builder = FunctionsApplication.CreateBuilder(args);
 
 builder.ConfigureFunctionsWebApplication();
 
-// Services
+// Services for registration and DI
 builder.Services.InjectApplication();
 builder.Services.InjectInfrastructure();
 
-// Middlewares
+// Middlewares for error handling and validation
 builder.UseMiddleware<ExceptionHandlerMiddleware>();
 builder.UseMiddleware<ValidationMiddleware>();
 
